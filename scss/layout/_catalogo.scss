@@ -1,0 +1,10 @@
+/* Coloco la clase catalogo*/
+.catalogo{
+    /* coloco en el grid*/
+    grid-row: 1/-1;
+    grid-column: 2/-2;
+    /* creo el layout con el mixin*/
+    @include flexposition(column);
+    /* defino su alto*/
+    min-height: 70vh;
+}

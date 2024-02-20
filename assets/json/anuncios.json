@@ -1,0 +1,87 @@
+{
+  "casas": [
+    {
+      "id": 1,
+      "puntos":3,
+      "nombre_casa": "Casa Acogedora",
+      "personas": 4,
+      "n_habitaciones": 2,
+      "descripcion": "Disfruta de la comodidad y la serenidad en nuestra hermosa Casa Acogedora. Con una vista panorámica a las majestuosas montañas, esta casa te envolverá en un ambiente cálido y relajante. Ideal para familias pequeñas o parejas en busca de un refugio tranquilo. Características: wifi, piscina, conexión con la naturaleza.",
+      "descripcion_larga":"Sumérgete en la experiencia de la serenidad y el confort absoluto al hospedarte en nuestra encantadora Casa Acogedora. Situada en un entorno que ofrece una impresionante vista panorámica de las majestuosas montañas, esta residencia te envolverá en un ambiente cálido y relajante desde el momento en que pongas un pie dentro. Diseñada especialmente para brindar tranquilidad y comodidad, es la opción perfecta para familias pequeñas o parejas que buscan un refugio apacible. \n Las características distintivas de la Casa Acogedora incluyen servicios como wifi de alta velocidad para mantenerte conectado, una piscina que proporciona un oasis de frescura y relajación, y una conexión inigualable con la naturaleza que te permite disfrutar de la belleza del entorno. Cada rincón de esta residencia ha sido cuidadosamente pensado para crear una experiencia única, donde la comodidad se fusiona con la serenidad, ofreciendo un refugio ideal para escapar del bullicio diario. Ven y descubre un espacio donde la armonía y la belleza se encuentran en perfecta sincronía.",
+      "instalaciones":["piscina (6,5x12m, profundidad 0,8x2,20m)",
+                       "aire acondicionado en la villa principal y la casa de invitados (dormitorios, sala de estar y comedor, no en las cocinas, baños y pasillos)",
+                       "barbacoa portátil","Sistema de sonido Bose en la villa principal.",
+                       "Moka italiana y cafetera americana.",
+                       "Conexión wifi en todas las habitaciones y zona del mirador, velocidad de 20 Mbps"],
+      "comodidades":["Tiendas de comestibles a 3 km (Spedalicchio)",
+                     "Supermercado 11 km/7 millas (Umbertide)",
+                     "Compras en un productor directo de vegetales orgánicos a 4 minutos en auto",
+                     "Restaurante a poca distancia (unos 500 metros/0,31 millas)",
+                     "Otros restaurantes 4 km/2,5 millas",
+                     "Cata de vinos 4km/2,5millas",
+                     "Campo de golf más cercano a 22 km/13 millas",
+                     "Lago deportivo 8km/4,9millas",
+                     "Lago de pesca libre 1,6km/0,9milla"],
+      "caracteristicas": ["wifi", "piscina", "naturaleza"],
+      "tarifas":[["Una semana", "600€"],["Un mes", "2200€"],["Larga estancia", "2100€/mes"]],
+      "imagen": "./assets/img/articulo_01.jpg",
+      "imagenes": ["./assets/img/articulo_01_0.jpg","./assets/img/articulo_01_1.jpg","./assets/img/articulo_01_2.jpg","./assets/img/articulo_01_3.jpg","./assets/img/articulo_01_4.jpg"],
+      "resena":[{"name":"Gabriel Lopez", "comentario":"Me ha gustado mucho esta vivienda por como esta distribuida y el lugar.", "rate":4},{"name":"Marta Perez", "comentario":"No me ha gustado la zona hay demasiada fiesta en esta zona.", "rate":2}]
+    },
+    {
+      "id": 2,
+      "puntos":3,
+      "nombre_casa": "Villa Tranquila",
+      "personas": 8,
+      "n_habitaciones": 4,
+      "descripcion": "Descubre la serenidad junto al mar en nuestra espaciosa Villa Tranquila. Con cuatro habitaciones elegantes y un diseño moderno, esta villa es perfecta para grupos grandes en busca de confort y privacidad. Disfruta de la proximidad a la playa y las comodidades de la vida urbana. Características: wifi, piscina, transporte cercano.",
+      "caracteristicas": ["wifi", "piscina", "transporte"],
+      "imagen": "./assets/img/articulo_02.jpg",
+      "imagenes": ["./assets/img/articulo_02_0.jpg","./assets/img/articulo_02_1.jpg","./assets/img/articulo_02_2.jpg","./assets/img/articulo_02_3.jpg","./assets/img/articulo_02_4.jpg"]
+    },
+    {
+      "id": 3,
+      "puntos":5,
+      "nombre_casa": "Refugio Rústico",
+      "personas": 6,
+      "n_habitaciones": 3,
+      "descripcion": "Sumérgete en la atmósfera encantadora de nuestro Refugio Rústico. Esta casa de campo cuenta con tres habitaciones y una acogedora chimenea, creando el escenario perfecto para una escapada romántica o unas vacaciones familiares. Rodeada de naturaleza y con una plaza cercana. Características: conexión con la naturaleza, plaza cercana.",
+      "caracteristicas": ["naturaleza", "plaza"],
+      "imagen": "./assets/img/articulo_03.jpg",
+      "imagenes": ["./assets/img/articulo_03_0.jpg","./assets/img/articulo_03_1.jpg","./assets/img/articulo_03_2.jpg","./assets/img/articulo_03_3.jpg","./assets/img/articulo_03_4.jpg"]
+    },
+    {
+      "id": 4,
+      "puntos":3.5,
+      "nombre_casa": "Apartamento Moderno",
+      "personas": 2,
+      "n_habitaciones": 1,
+      "descripcion": "Experimenta la vida moderna en nuestro Apartamento Moderno ubicado en el corazón de la ciudad. Ideal para parejas o viajeros individuales, este apartamento cuenta con todas las comodidades necesarias y está cerca de las principales atracciones urbanas. Características: wifi, transporte cercano.",
+      "caracteristicas": ["wifi", "transporte"],
+      "imagen": "./assets/img/articulo_04.jpg",
+      "imagenes": ["./assets/img/articulo_04_0.jpg","./assets/img/articulo_04_1.jpg","./assets/img/articulo_04_2.jpg","./assets/img/articulo_04_3.jpg","./assets/img/articulo_04_4.jpg"]
+    },
+    {
+      "id": 5,
+      "puntos":2.2,
+      "nombre_casa": "Casa de Playa",
+      "personas": 10,
+      "n_habitaciones": 5,
+      "descripcion": "Vive la experiencia de la playa en nuestra Casa de Playa. Con acceso directo a la arena y amplias habitaciones, esta casa es perfecta para grupos numerosos que buscan un retiro frente al mar. Disfruta de comodidades como wifi, piscina y transporte cercano. Conéctate con la naturaleza a cada paso.",
+      "caracteristicas": ["wifi", "piscina", "transporte", "naturaleza"],
+      "imagen": "./assets/img/articulo_05.jpg",
+      "imagenes": ["./assets/img/articulo_05_0.jpg","./assets/img/articulo_05_1.jpg","./assets/img/articulo_05_2.jpg","./assets/img/articulo_05_3.jpg","./assets/img/articulo_05_4.jpg"]
+    },
+    {
+      "id": 6,
+      "puntos":5,
+      "nombre_casa": "Apartamento en la Montaña",
+      "personas": 3,
+      "n_habitaciones": 2,
+      "descripcion": "Eleva tu experiencia con nuestro Apartamento en la Montaña. Con vistas panorámicas y un ambiente acogedor, este apartamento es perfecto para aquellos que buscan escapar del bullicio de la ciudad. Con wifi, conexión con la naturaleza y una plaza cercana, disfruta de una estancia relajante.",
+      "caracteristicas": ["wifi", "naturaleza", "plaza"],
+      "imagen": "./assets/img/articulo_06.jpg",
+      "imagenes": ["./assets/img/articulo_06_0.jpg","./assets/img/articulo_06_1.jpg","./assets/img/articulo_06_2.jpg","./assets/img/articulo_06_3.jpg","./assets/img/articulo_06_4.jpg"]
+    }
+  ]
+}

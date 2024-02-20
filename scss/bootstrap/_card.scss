@@ -1,0 +1,26 @@
+/*EDITANDO CARD DE BOOTSTRAP*/
+/*Espaciado*/
+$spacer:2rem;
+/*Ancho del borde*/
+$border-width: .1rem;
+/*radio de las esquinas borde*/
+$border-radius: 1rem;
+
+/*Color del borde*/
+$card-border-color: #ccc;
+/*Back ground de la card*/
+$card-bg:white;
+
+/*Redefino los valores que en la card no se pueden modificar*/
+.card{
+    width: 30rem !important;
+    /*Establezco max y min a las imagenes*/
+    img{
+        min-height: 20rem;
+        max-height: 20rem;
+    }
+    /*Le hago la media query*/
+    @include response(md){
+        margin-bottom: 2rem;
+    }
+}

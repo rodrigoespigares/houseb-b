@@ -1,0 +1,28 @@
+/*EDITANDO VARIABLES PRINCIPALES*/
+/* Cambio el color primario*/
+$primary: color(primary);
+/* Cambio el color secundario*/
+$secondary: color(secondary);
+/* Creo el color secundario oscuro*/
+$secondary-600:color(secondary-600);
+/* Creo el color terciario*/
+$tertiary: color(tertiary);
+/* Creo el color cuaternario*/
+$quaternary: color(quaternary);
+
+/* Añado los coler al tema*/
+$custom_theme:(
+    "secondary-600" : $secondary-600,
+    "tertiary" : $tertiary,
+    "quaternary": $quaternary,
+);
+
+/*Modifico el tema principal*/
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+);
+
+/*Los añado*/
+$theme-colors: map-merge($theme-colors, $custom_theme);
+

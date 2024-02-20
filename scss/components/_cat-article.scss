@@ -1,0 +1,107 @@
+/*Defino las variables para las estrellas*/
+:root {
+    --star-size: 60px;
+    --star-color: #fff;
+}
+/*Comienzo a definir los articulos*/
+.catalogo__articulos{
+    /*Defino margen superior*/
+    margin-top: 3rem;
+    /*Defino el ancho*/
+    width: 100%;
+    /*Color de fondo*/
+    background-color: white;
+    /*Comienzo a definir la imagen*/
+    &__imagen{
+        /*Coloco un borde*/
+        border: .1rem solid color(secondary);
+        /*Comienzo a definir el carrusel*/
+        .carousel{
+            /*Tamaño del padre*/
+            height: 28vh;
+            width: 22vw;
+            /*Hago que los hijos tengan el 100%*/
+            &-inner{
+                height: 100%;
+                width: 100%;
+            }
+            &-item{
+                height: 100%;
+                img{
+                   height: 100%;
+                   width: 100%;
+                }
+            }
+            /*Mediaquery para dispositivos medianos cambiar el ancho*/
+            @include response(md){
+                width: 100%;
+            }
+        }
+    }
+    /*Comienzo a definir el contenido*/
+    &__content{
+        /*La estrellas*/
+        .Stars {
+            /*Calculo el porcentaje*/
+            --percent: calc(var(--rating) / 5 * 100%);
+            /*Establezco el display*/
+            display: inline-block;
+            /*tamaño de las starts*/
+            font-size: 2rem;
+            /*Le hago el before para el contenido*/
+            &::before {
+                /*Dibujo las estrellas*/
+                content: "★★★★★";
+                /*espaciado*/
+                letter-spacing: .3rem;
+                /*Degradado pintando estrellas*/
+                background: linear-gradient(90deg, color(secondary) var(--percent), var(--star-color) var(--percent));
+                /*Clip al content*/
+                background-clip: text;
+                /*Fondo para chrome*/
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        /*Comienzo a definir el detalle*/
+        &__detalle{
+            /*Margenes*/
+            margin-left: auto ;
+            margin-right: 5rem;
+            /*tamaño de fuente*/
+            font-size: 2rem;
+            /*Limpio los links*/
+            @include reset-link;
+            /*cambio el color de texto*/
+            color: color(secondary);
+            /*opacidad al 0*/
+            opacity: 0;
+            /*cursor*/
+            cursor: pointer;
+            /*Hover*/
+            &:hover{
+                color: color(secondary-600);
+            }
+            /*mediaquery para que sea visible*/
+            @include response(md){
+                opacity: 1;
+            }
+        }
+        /*iconos con tamaño*/
+        &__icon{
+            /*Para pc*/
+            width: 3%;
+            /*mediaquery para tablet y menores*/
+            @include response(md){
+                width: 10%;
+            }
+        }
+        /* hover para ver el ver más*/
+        &:hover &__detalle{
+            /*Cambio opacidad*/
+            opacity: 1;
+            /*transicion*/
+            transition: opacity 1.5s;
+        }
+    }
+}
+

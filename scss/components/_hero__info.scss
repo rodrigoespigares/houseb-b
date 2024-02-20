@@ -1,0 +1,29 @@
+/* Diseño hero info*/
+.hero__info{
+    /* Ancho*/
+    width: 70%;
+    /* creo grid*/
+    @include gridResponsive(40%);
+    /* diseño de los articulos*/
+    &__article{
+        /* diseño dentro de los articulos*/
+        @include flexposition(row,start);
+        /* gap*/
+        gap: 3rem;
+        /* diseño iconos*/
+        &__icon{
+            font-size: 5rem;
+        };
+        /* diseño contenido*/
+        &__content{
+            /* titulo*/
+            h3{
+                font-size: size(xl);
+            }
+            /* texto*/
+            p{
+                font-size: size(md);
+            }
+        }
+    }
+}

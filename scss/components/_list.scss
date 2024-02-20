@@ -1,0 +1,5 @@
+/* Defino clase para limpiar las listas*/
+.list-clean{
+    /*uso mixin para limpiado de listas*/
+    @include reset-list;   
+}

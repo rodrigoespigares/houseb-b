@@ -1,0 +1,150 @@
+/*Comenzando detalle*/
+.detalle{
+    /*Colocando imagen*/
+    &__imagen{
+        /*Tamaño*/
+        width: 100%;
+        height: 50vh;
+        /*imagen interior*/
+        img{
+            /*Tamaño*/
+            width: 100%;
+            height: 100%;
+            /*cubir todo*/
+            object-fit: cover;
+        }
+    }
+    /*Galeria inferior*/
+    &__galeria{
+        /*margen izquierda*/
+        margin-left: 5vw;
+        /*Layout flex*/
+        display: flex;
+        /*Ancho para pc*/
+        width: 15vw;
+        /*gap entre fotos*/
+        gap: 1rem;
+        /*Definiendo imagenes*/
+        &__imagen{
+            /*borde de la imagen*/
+            border: 1px solid color(secondary);
+            /*cursor*/
+            cursor: pointer;
+            /*imagen interior*/
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        /* Mediaquery dispositivos 1200px*/
+        @include response(xl){
+            width: 50%;
+            
+        }
+        /* Mediaquery dispositivos 680px*/
+        @include response(md){
+            width: 90%;
+        }
+    }
+    /*Contenido del detalle*/
+    &__content{
+        /*padding izquierda*/
+        padding-left: 5vw;
+        /*Estrellas del interior*/
+        .Stars {
+            /*variable para el porcentaje*/
+            --percent: calc(var(--rating) / 5 * 100%);
+            /*display*/
+            display: inline-block;
+            /*Tamaño*/
+            font-size: 2rem;
+             &::before {
+                /*Dibujo las estrellas*/
+                content: "★★★★★";
+                /*espaciado*/
+                letter-spacing: .3rem;
+                /*Degradado pintando estrellas*/
+                background: linear-gradient(90deg, color(secondary) var(--percent), var(--star-color) var(--percent));
+                /*Clip al content*/
+                background-clip: text;
+                /*Fondo para chrome*/
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        /*Margen del scroll para que no se tape por el header*/
+        #descripcion{
+            scroll-margin-top: 20rem;
+            @include response(md){
+                scroll-margin-top: 25rem;
+            }
+        }
+        #instalaciones{
+            scroll-margin-top: 20rem;
+            @include response(md){
+                scroll-margin-top: 25rem;
+            }
+        }
+        #comodidades{
+            @include response(md){
+                scroll-margin-top: 25rem;
+            }
+        }
+        #tarifas{
+            @include response(md){
+                scroll-margin-top: 25rem;
+            }
+        }
+        #resena{
+            @include response(md){
+                scroll-margin-top: 25rem;
+            }
+        }
+        /*Modificando reseñas*/
+        .resena__text{
+            /*Ancho total*/
+            width: 100%;
+            /*alto total*/
+            height: 15vh;
+            /*Coloreado borde*/
+            border: .1rem solid color(secondary);
+            /*resize no*/
+            resize: none;
+            /*overflow y auto para cuando sea necesario*/
+            overflow-y: auto;
+            /*Tamaño fuente*/
+            font-size: 2rem;
+            /*color fuente*/
+            color: color(primary);  
+            /*cuando le hagang focus*/  
+            &:focus{
+                /*cambio outline*/
+                outline: 2px solid color(secondary);
+            }
+        }
+        /*tamaños de iconos*/
+        &__icon{
+            /*monitores grandes*/
+            width: 10%;
+            /* Mediaquery tamaño tablet*/
+            @include response(md){
+                width: 80%;
+            }
+        }
+    }
+    /* Diseño factura*/
+    &__factura{
+        /* Defino total de ancho y alto*/
+        height: min-content;
+        width: 45vw;
+        /* alineo al centro*/
+        justify-self: center;
+        /* fondo*/
+        background-color: white;
+        /*paddin al bottom*/
+        padding-bottom: 2rem;
+        /* Mediaquery a la tablet*/
+        @include response(md){
+            width: 80%;
+        }
+    }
+}

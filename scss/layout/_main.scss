@@ -1,0 +1,14 @@
+/*Diseño del main*/
+.main{
+    /* lo coloco en mi grid*/
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    /* el color de fondo*/
+    background-color: color(tertiary);
+    /* creo las sections*/
+    &__sections{
+        /* Creo el grid dentro de las secciones*/
+        @include creagrid(8,6,5rem);
+    }
+
+}

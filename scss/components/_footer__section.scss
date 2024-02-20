@@ -1,0 +1,17 @@
+/*Diseño secciones del footer*/
+.footer__section{
+    /* margen alto y bajo*/
+    margin: 3rem 0;
+    /* Diseño titulo*/
+    h4{
+        font-size: size(md);
+    }
+    /* Diseño iconos*/
+    div a{
+        font-size: size(md);
+    }
+    /* Diseño enlaces*/
+    li a{
+        font-size: 2rem;
+    }
+}

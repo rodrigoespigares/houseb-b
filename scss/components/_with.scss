@@ -1,0 +1,6 @@
+/* Defino diferentes anchos con el mixin w creando las clases w-[num]*/
+@include w-(90);
+@include w-(80);
+@include w-(30);
+@include w-(10);
+@include w-(3);

@@ -1,0 +1,6 @@
+/* Defino diferentes tamaños de fuente con el mixin fs creando las clases fs-[num]*/
+@include fs(5);
+@include fs(4);
+@include fs(3);
+@include fs(2);
+@include fs(1);

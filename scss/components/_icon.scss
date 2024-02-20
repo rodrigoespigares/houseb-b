@@ -1,0 +1,18 @@
+/* Creo la clase icono para usarla en global*/
+.icon{
+    /* tamaño fuente*/
+    font-size: size(xxl);
+    /* color por defecto*/
+    color: color(secondary-600);
+    /* Iconos para el footer*/
+    &__footer{
+        /* tamaño*/
+        font-size: size(xxl);
+        /* color de texto*/
+        color: color(tertiary);
+        /* hover para los que son interactivos*/
+        &__interactive:hover{
+            color: color(secondary-600);
+        }
+    }
+}

@@ -1,0 +1,39 @@
+:root {
+    --star-size: 3rem;
+    --star-color: #fff;
+}
+/* Defino review de clientes*/
+.reviews__client{
+    /* Start*/
+    .Stars {
+        /* procentaje*/
+        --percent: calc(3 / 5 * 100%);
+        /* displau*/
+        display: inline-block;
+        /* tamaño*/
+        font-size: var(--star-size);
+        &::before {
+            /*Dibujo las estrellas*/
+            content: "★★★★★";
+            /*espaciado*/
+            letter-spacing: .3rem;
+            /*Degradado pintando estrellas*/
+            background: linear-gradient(90deg, color(secondary) var(--percent), var(--star-color) var(--percent));
+            /*Clip al content*/
+            background-clip: text;
+            /*Fondo para chrome*/
+            -webkit-text-fill-color: transparent;
+        }
+    }
+    /* redondeo los botones*/
+    .round{
+        border-radius: 50%;
+        /* sobre escribo el important de bootstrap*/
+        width: 20px !important;
+        height: 20px !important;
+    }
+    /*tamaño al fondo*/
+    .bg-primary{
+        height: 40vh;
+    }
+}

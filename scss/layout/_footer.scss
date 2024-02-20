@@ -1,0 +1,11 @@
+/* Coloco la clase footer*/
+.footer{
+    /*Coloco en el grid*/
+    grid-column: 1/-1;
+    grid-row: 3/4;
+    /* diseño su layout*/
+    @include flexposition(row,space-evenly);
+    /* fondo y texto*/
+    background-color: color(primary);
+    text-align: center;
+}

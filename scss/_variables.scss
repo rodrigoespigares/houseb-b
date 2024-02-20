@@ -1,0 +1,53 @@
+/// Colores principales de la web
+/// @group colores
+$colors: (
+    primary:#77809B,
+    secondary:#9B824C, 
+    secondary-600:#584b2e, 
+    tertiary: #eeeeee,
+    quaternary:#aaa,
+    quaternary-8: rgba(119, 128, 155, 0.6)
+);
+/// Función para devolver un color declarado en el mapa
+/// @param {string} $color 
+/// @return {color} color - en hexadecimal
+/// @group colores
+
+@function color($color){
+    @return map-get($colors,$color);
+}
+
+/// Anchuras principales de la web
+/// @group anchura
+$font-weights:(
+    "light":200,
+    "regular": 400,
+    "bold":700
+);
+
+/// Función para devolver anchuras declaradas en el mapa
+/// @param {string} $weigth 
+/// @return {ancho} anchura de letra
+/// @group anchura
+@function width($wigth){
+    @return map-get($font-weights,$wigth);
+}
+
+/// Tamaños principales de la web
+/// @group tamaños
+$font-sizes:(
+    xxl:6rem,
+    xl:3rem,
+    lg:2.5rem,
+    md:2rem,
+    sm:1.8rem,
+    xs:1.6rem
+);
+
+/// Función para devolver el tamaño declarado en el mapa
+/// @param {size} $size 
+/// @return {tamaño} devuelve el tamaño del mapa
+/// @group tamaños
+@function size($size){
+    @return map-get($font-sizes,$size);
+}

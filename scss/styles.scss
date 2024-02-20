@@ -1,0 +1,78 @@
+/* importo el archivo variable*/
+@import './variables';
+/* importo el archivo mixin*/
+@import './mixin';
+/* importo el archivo base*/
+@import './base';
+
+/*IMPORTS DE LAYOUT*/
+
+/* importo el archivo header*/
+@import './layout/header';
+/* importo el archivo main*/
+@import './layout/main';
+/* importo el archivo hero*/
+@import './layout/hero';
+/* importo el archivo sliders*/
+@import './layout/sliders';
+/* importo el archivo reviews*/
+@import './layout/reviews';
+/* importo el archivo galery*/
+@import './layout/galery';
+/* importo el archivo interesting*/
+@import './layout/interesting';
+/* importo el archivo catalogo*/
+@import './layout/catalogo';
+/* importo el archivo detalle*/
+@import './layout/detalle';
+/* importo el archivo footer*/
+@import './layout/footer';
+
+/* IMPORTO COMPONENTES */
+
+/* importo el archivo header*/
+@import './components/header';
+/* importo el archivo nav*/
+@import './components/nav';
+/* importo el archivo hero__info*/
+@import './components/hero__info';
+/* importo el archivo hero__slider*/
+@import './components/hero__slider';
+/* importo el archivo list*/
+@import './components/list';
+/* importo el archivo link*/
+@import './components/link';
+/* importo el archivo icon*/
+@import './components/icon';
+/* importo el archivo footer__section*/
+@import './components/footer__section';
+/* importo el archivo with*/
+@import './components/with';
+/* importo el archivo font*/
+@import './components/font-size';
+/* importo el archivo sliders__cat*/
+@import './components/sliders__cat';
+/* importo el archivo reviews_client*/
+@import './components/reviews_client';
+/* importo el archivo reviews_cards*/
+@import './components/reviews_cards';
+/* importo el archivo cat*/
+@import './components/cat-article';
+/* importo el archivo detalle*/
+@import './components/detalle';
+
+/* IMPORTO MIS ARCHIVOS PERSONALES DE BOOTSTRAP*/
+
+/* importo el archivo var*/
+@import './bootstrap/var';
+/* importo el archivo carousel*/
+@import './bootstrap/carousel';
+/* importo el archivo card*/
+@import './bootstrap/card';
+/* importo el archivo buttons*/
+@import './bootstrap/buttons';
+
+/* IMPORTO EL ARCHIVO DE BOOTSTRAP GENERAL*/
+
+/* importo el archivo de bootstrap*/
+@import "../node_modules/bootstrap/scss/bootstrap";

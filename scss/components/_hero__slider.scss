@@ -1,0 +1,14 @@
+/*Diseño slider*/
+.hero__slider{
+    /* Ancho*/
+    width: 100%;
+    /* Articulos */
+    &__articles{
+        /* ancho */
+        height: 60vh;
+        /* mediaquery para tablet*/
+        @include response(md){
+            height: 20vh;
+        }
+    }
+}

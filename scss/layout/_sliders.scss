@@ -1,0 +1,15 @@
+/* Coloco la clase sliders*/
+.sliders{
+    /* lo coloco en el grid*/
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    /* creo el layout*/
+    @include flexposition(column);
+    /* defino el filtrado*/
+    &__filter{
+        /* creo la el grid responsivo*/
+        @include gridResponsive(20%,1fr,10rem);
+        /* ancho total*/
+        width: 80%;
+    }
+}

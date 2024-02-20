@@ -1,0 +1,19 @@
+/* Coloco la clase hero*/
+.hero{
+    /*lo coloco en el grid*/
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    /* creo el layout*/
+    @include flexposition(column);
+    /* pongo su gap*/
+    gap:3rem;
+    /* tituñp*/
+    h2{
+        font-weight: width(light);
+        font-size: size(xxl);
+    }
+    /*enlaces*/
+    a{
+        font-size: size(md);
+    }
+}

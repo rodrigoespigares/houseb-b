@@ -1,0 +1,69 @@
+/*Diseño del header*/
+.header{
+    /*Diseño titulo del header*/
+    h1{
+        /* Fuente*/
+        font-family: "Caveat", cursive;
+        /* Animacion*/
+        animation: soloText 2s linear both;
+        /* Tamaño*/
+        font-size: 5rem;
+        /* Cursor*/
+        cursor: pointer;
+    }
+    /* Cuando hago hover al titulo*/
+    a:hover h1{
+        /* Cambio color*/
+        color: color(secondary-600) !important;
+    }
+    /* Diseño para los input de fecha*/
+    input[type=date] {
+        /* Margen al cero*/
+        margin: 0 auto;
+        /* Fuente*/
+        font-family: arial, sans-serif;
+        /* Texto a mayusculas*/
+        text-transform: uppercase;
+        /* Background*/
+        background-color: transparent;
+        /* limpio outline y borde*/
+        outline: none;
+        border: 0;
+        /* radio del borde*/
+        border-radius: .3rem;
+        /* paddion*/
+        padding: 0 .3rem;
+        /* color de fuente*/
+        color: color(tertiary);
+    }
+    /* Diseño del select*/
+    select {
+        /* Fondo*/
+        background-color: transparent;
+        /* outline al 0*/
+        outline: none;
+        /* Cambio a mayus*/
+        text-transform: uppercase;
+        /* reset borde*/
+        border: 0;
+        /* cambio color fuente*/
+        color: color(tertiary);
+        /* color cuando le hago focus*/
+        &:focus {
+            background-color: color(primary);
+        }
+    }
+}
+
+/* Definciendo animaciones*/
+@keyframes colorear{
+    to { 
+        background-color: color(primary);
+        color: color(tertiary);
+    }
+}
+@keyframes soloText {
+    to{
+        color: color(tertiary);
+    }
+}

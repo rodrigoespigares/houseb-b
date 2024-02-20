@@ -1,0 +1,8 @@
+/*Coloco la clase header*/
+.header {
+    /* lo coloco en el grid*/
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    /* lo animo */
+    animation: colorear 2s linear both;  
+}

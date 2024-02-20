@@ -1,0 +1,25 @@
+/* Coloco la clase galeria*/
+.galery{
+    /*lo coloco en el grid*/
+    grid-column: 1/-1;
+    grid-row: 4/5;
+    /* creo su layout*/
+    @include flexposition;
+    /* padding top y bottom*/
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    /* fondo*/
+    background-color: color(secondary);
+    /* div que contiene las fotos*/
+    div{
+        /* Creo su grid responsivo*/
+        @include gridResponsive(10vw,1fr,1rem);
+        /* ancho*/
+        width: 70%;
+        /*trato imagenes*/
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

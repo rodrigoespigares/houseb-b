@@ -1,0 +1,23 @@
+/* importo la clase*/
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+/* reseteo el margen y padding*/
+*{
+    margin: 0;
+    padding: 0;
+}
+/* defino para la seleccion el background y el color de fuente*/
+*::selection{
+    background-color: color(secondary);
+    color: color(tertiary);
+}
+/* tamaño de fuente para el html*/
+html{
+    font-size: 62.5%;
+}
+/* defino la clase body*/
+.body{
+    /* fondo*/
+    background-color: color(tertiary);
+    /* creo su grid interior*/
+    @include creagrid(8,3);
+}

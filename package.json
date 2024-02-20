@@ -1,0 +1,25 @@
+{
+  "name": "proyectofinal-sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "node-sass -o css scss/styles.scss -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "gulp-dart-scss": "^1.1.0",
+    "gulp-rename": "^2.0.0",
+    "node-sass": "^9.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-processhtml": "^1.2.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.70.0",
+    "sassdoc": "^2.7.4"
+  }
+}

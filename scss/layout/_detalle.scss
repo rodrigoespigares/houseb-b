@@ -1,0 +1,15 @@
+/* Coloco la clase detalle*/
+.detalle{
+    /* Coloco en el grid*/
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    /* creo el layout con el mixin*/
+    @include flexposition(column);
+    /* defino su alto*/
+    min-height: 70vh;
+}
+/* defino la parte baja del detalle*/
+#detalle__bajo{
+    /* creo un grid responsivo*/
+    @include gridResponsive(40vw, 1fr,4rem)
+}

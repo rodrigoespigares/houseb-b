@@ -1,0 +1,13 @@
+/* defino clase general link*/
+.link{
+    /*Limpio decoracion*/
+    text-decoration: none;
+    /* cambio color*/
+    color: color(primary-600);
+    /* Para hover y activos*/
+    &:hover, &:active{
+        /* Cambio color*/
+        color: color(secondary-600);
+    }
+}
+

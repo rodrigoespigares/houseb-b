@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquiler de casas</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* CDN *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- VUE JS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Iconos remix icon -->
+    <script src="https://kit.fontawesome.com/e161f36ce9.js" crossorigin="anonymous"></script>
+    <!-- Iconos fontawesome -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script> <!-- Iconos ed phosphor icon -->
+    <script src="./assets/js/index.js"></script>
+</head>
+
+<body class="body" id="app">
+    <!-- Header-->
+    <header class="header navbar navbar-expand-lg d-flex flex-column sticky-top">
+        <section class="d-flex justify-content-between w-80">
+            <section class="navbar-brand">
+                <a @click="inicio()"><h1>HouseB&amp;B</h1></a>
+            </section>
+            <nav class="top-nav header__nav">
+                <input id="menu-toggle" type="checkbox" v-model="check"/>
+                <label class='menu-button-container' for="menu-toggle">
+                    <div class='menu-button'></div>
+                </label>
+                <!-- menú desplegable-->
+                <ul class="menu">
+                    <li class="header__nav__container"><a href="#" class="header__nav__container__link" @click="verCatalogo()">Destinations</a></li>
+                    <li class="header__nav__container"><a href="#" class="header__nav__container__link">Info</a></li>
+                    <li class="header__nav__container"><a href="#" class="header__nav__container__link">Magazine</a></li>
+                    <li class="header__nav__container"><a href="#" class="header__nav__container__link">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="d-flex flex-column flex-md-row justify-content-evenly align-items-center w-100">
+            <!-- Seccion de busqueda y tiempo-->
+            <section class="d-flex justify-content-evenly w-30 fs-3">
+                <p><i class="ph ph-cloud-sun"></i>{{tiempo.temperatura_actual}}ºC</p>
+                <p><i class="ph ph-calendar"></i>{{fecha}}</p>
+                <p><i class="ph ph-calendar"></i>{{horaAct}}</p>
+            </section>
+            <section class="fs-4 fw-light d-flex flex-column flex-md-row align-items-center">
+                <label for="llegada">
+                    LLEGADA:
+                    <input type="date" id="llegada">
+                </label>
+                <label for="salida">
+                    SALIDA:
+                    <input type="date" id="salida">
+                </label>
+                <select id="habitaciones">
+                    <option value="" selected="selected">Habitaciones</option>
+                    <option value="1" data-select2-id="5">1 hab (1-2 prs.)</option>
+                    <option value="2" data-select2-id="6">2 hab (3-4 prs.)</option>
+                    <option value="3" data-select2-id="7">3 hab (5-6 prs.)</option>
+                    <option value="4" data-select2-id="8">4 hab (7-8 prs.)</option>
+                    <option value="5" data-select2-id="9">5 hab (9-10 prs.)</option>
+                    <option value="6" data-select2-id="10">6 hab (11-12 prs.)</option>
+                    <option value="7" data-select2-id="11">7 hab (13-14 prs.)</option>
+                    <option value="8" data-select2-id="12">8 hab (15-16 prs.)</option>
+                    <option value="9" data-select2-id="13">9 hab (17-18 prs.)</option>
+                    <option value="10" data-select2-id="14">10+ hab (19+ prs.)</option>
+                </select>
+                <button class="btn btn-secondary fs-3" @click="verCatalogo()">Buscar</button>
+            </section>
+        </section>
+    </header>
+    <main class="main">
+        <!-- seccion principal-->
+        <section class="main__sections" v-if="index">
+            <!-- Hero -->
+            <section class="hero">
+                <!-- SLIDER -->
+                <section class="mw-100 hero__slider">
+                    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+                        <div class="carousel-inner hero__slider__articles">
+                            <div class="carousel-item active">
+                                <img src="./assets/img/hero_01.jpg" class="d-block w-100">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./assets/img/hero_02.jpg" class="d-block w-100">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./assets/img/hero_03.jpg" class="d-block w-100">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button"
+                            data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button"
+                            data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </section>
+                <!-- Información extra-->
+                <h2 class="text-secondary-600 text-center">Villas y casas de alquiler para sus vacaciones</h2>
+                <section class="hero__info">
+                    <article class="hero__info__article">
+                        <div class="hero__info__article__icon">
+                            <i class="ph ph-broom icon"></i>
+                        </div>
+                        <div class="hero__info__article__content">
+                            <h3 class="text-center text-md-start">Limpieza</h3>
+                            <p class="text-center text-md-start">Valoramos la limpieza de las viviendas personalmente</p>
+                        </div>
+                    </article>
+                    <article class="hero__info__article">
+                        <div class="hero__info__article__icon">
+                            <i class="ph ph-globe-hemisphere-east icon"></i>
+                        </div>
+                        <div class="hero__info__article__content">
+                            <h3 class="text-center text-md-start">España</h3>
+                            <p class="text-center text-md-start">Vive tu mejor experiencia con una vivienda de lujo en España</p>
+                        </div>
+                    </article>
+                    <article class="hero__info__article">
+                        <div class="hero__info__article__icon">
+                            <i class="ph ph-coffee icon"></i>
+                        </div>
+                        <div class="hero__info__article__content">
+                            <h3 class="text-center text-md-start">Servicio personalizado</h3>
+                            <p class="text-center text-md-start">Contamos con los mejores profesionales para abastecer sus servicios</p>
+                        </div>
+                    </article>
+                    <article class="hero__info__article">
+                        <div class="hero__info__article__icon">
+                            <i class="ph ph-tag icon"></i>
+                        </div>
+                        <div class="hero__info__article__content">
+                            <h3 class="text-center text-md-start">Ofertas especiales</h3>
+                            <p class="text-center text-md-start">Descubre ahora las mejores ofertas para vivir una experiencia de lujo</p>
+                        </div>
+                    </article>
+                </section>
+                <a class="btn btn-secondary" href="#" @click="verCatalogo()">Explora ahora todas nuestras opciones</a>
+            </section>
+            <!-- Categorias -->
+            <section class="sliders">
+                <section class="sliders__filter">
+                    <a href="#" @click="verCatalogo()">
+                        <article class="sliders__filter__content cat_01">
+                            <h3>Rural</h3>
+                        </article>
+                    </a>
+                    <a href="#" @click="verCatalogo()">
+                        <article class="sliders__filter__content cat_02">
+                            <h3>Playa</h3>
+                        </article>
+                    </a>
+                    <a href="#" @click="verCatalogo()">
+                        <article class="sliders__filter__content cat_03">
+                            <h3>Ciudad</h3>
+                        </article>
+                    </a>
+                    <a href="#" @click="verCatalogo()">
+                        <article class="sliders__filter__content cat_04">
+                            <h3>Con animales</h3>
+                        </article>
+                    </a>
+                </section>
+            </section>
+            <!-- Zonas de reviews de los usuarios-->
+            <section class="reviews">
+                <section class="reviews__client">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+                        <div class="carousel-indicators">
+                            <button data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="round active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                            <button data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class="round"
+                                aria-label="Slide 2"></button>
+                            <button data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class="round"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="d-block w-100 bg-primary"> </div>
+                                <div class="carousel-caption d-flex flex-column align-items-center">
+                                    <div class="Stars" :style="rate" aria-label="Rating of this product is 2.3 out of 5.">
+                                    </div>
+                                    <h2 class="display-4 text-uppercase">daniela rodrigues</h2>
+                                    <p class="fs-2 w-md-50 text-center">¡Las personas son muy amables y educadas! El desayuno fue muy bueno.
+                                        Tiene un buen costo y diversidad. Tenía huevos revueltos, quesos, pan calentito,
+                                        café, zumo, algunas frutas y bacon. Se puede dejar el equipaje en el hotel sin
+                                        ningún costo adicional.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-block w-100 bg-primary"> </div>
+                                <div class="carousel-caption d-flex flex-column align-items-center">
+                                    <div class="Stars" :style="rate" aria-label="Rating of this product is 2.3 out of 5.">
+                                    </div>
+                                    <h2 class="display-4 text-uppercase">daniel G</h2>
+                                    <p class="fs-2 w-md-50 text-center">Gracias a todo el equipo del crisol de Granada, aun que tuve que irme
+                                        antes os quiero felicitar por vuestro servicio tan amable y cariñoso. Las
+                                        habitaciones estaban geniales. El desayuno estaba tambien muy bien.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-block w-100 bg-primary"> </div>
+                                <div class="carousel-caption d-flex flex-column align-items-center">
+                                    <div class="Stars" :style="rate" aria-label="Rating of this product is 2.3 out of 5."></div>
+                                    <h2 class="display-4 text-uppercase">ana</h2>
+                                    <p class="fs-2 w-md-50 text-center">Desde el primer momento nos atendieron amablemente y se preocuparon
+                                        nuestra estancia fuera agradable. La habitación antigua pero limpia y amplia con una
+                                        gran terraza.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Cards para publicidad -->
+                <section class="reviews__cards">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="assets/img/review_01.jpg" alt="Card Front Image" />
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="card-content">
+                                    <h2 class='card-content--title text-uppercase'>Disfruta de lugares maravillosos</h2>
+                                    <p class="card-content--text">Dejanos llevarte a lugares maravillosos donde podrás disfrutar de una estancia relajada y apasionante</p>
+                                    <a href="#" class="card-content--btn btn fs-3">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="assets/img/review_02.jpg" alt="Card Front Image" />
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="card-content">
+                                    <h2 class='card-content--title text-uppercase'>Conoce nuevos lugares</h2>
+                                    <p class="card-content--text">Conocemos los lugares más escondidos y remotos de la ciudad dejanos llevarte y que desconectes, nosotros nos encargamos de todo</p>
+                                    <a href="#" class="card-content--btn btn fs-3">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="assets/img/review_03.jpg" alt="Card Front Image" />
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="card-content">
+                                    <h2 class='card-content--title text-uppercase'>Adentrate en zonas rurales</h2>
+                                    <p class="card-content--text">Disfruta de la vida lejos de la ciudad si es que prefieres para desconectar y vivir una experiencia relajante con nostros.</p>
+                                    <a href="#" class="card-content--btn btn fs-3">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!--Galeria -->
+            <section class="galery">
+                <div>
+                    <img src="./assets/img/galery_01.jpg" alt="Imagen de casa de verano">
+                    <img src="./assets/img/galery_02.jpg" alt="Imagen de casa de verano">
+                    <img src="./assets/img/galery_03.jpg" alt="Imagen de casa de verano">
+                    <img src="./assets/img/galery_04.jpg" alt="Imagen de casa de verano">
+                    <!-- Mediaquery para que no salgan en moviles -->
+                    <img class="d-none d-md-block" src="./assets/img/galery_05.jpg" alt="Imagen de casa de verano">
+                    <img class="d-none d-md-block" src="./assets/img/galery_06.jpg" alt="Imagen de casa de verano">
+                    <img class="d-none d-md-block" src="./assets/img/galery_07.jpg" alt="Imagen de casa de verano">
+                    <img class="d-none d-md-block" src="./assets/img/galery_08.jpg" alt="Imagen de casa de verano">
+                    <img class="d-none d-md-block" src="./assets/img/galery_09.jpg" alt="Imagen de casa de verano">
+                    <img class="d-none d-md-block" src="./assets/img/galery_10.jpg" alt="Imagen de casa de verano">
+                    <img class="d-none d-md-block" src="./assets/img/galery_11.jpg" alt="Imagen de casa de verano">
+                    <img class="d-none d-md-block" src="./assets/img/galery_12.jpg" alt="Imagen de casa de verano">
+                </div>
+            </section>
+            <!-- Casas destacadas -->
+            <section class="interesting">
+                <div class="card h-100" style="width: 18rem;">
+                    <img src="./assets/img/articulo_01.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-3">Casa acogedora</h5>
+                        <p class="card-text fs-4">Disfruta de la comodidad y la serenidad en nuestra hermosa Casa Acogedora. Con una vista panorámica a las majestuosas montañas...</p>
+                        <a class="btn btn-secondary fs-3" @click="verDetalle()" href="#">Ver más</a>
+                    </div>
+                </div>
+                <div class="card h-100" style="width: 18rem;">
+                    <img src="./assets/img/galery_09.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-3">Villa paraiso</h5>
+                        <p class="card-text fs-4">Descubre la serenidad junto al mar en nuestra espaciosa Villa Tranquila.Con cuatro habitaciones elegantes y un diseño moderno, esta villa es perfecta para grupos grandes en busca de confort</p>
+                        <a href="#" class="btn btn-secondary fs-3">Ver más</a>
+                    </div>
+                </div>
+                <div class="card h-100" style="width: 18rem;">
+                    <img src="./assets/img/galery_06.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-3">Vivienda moderna</h5>
+                        <p class="card-text fs-4">Experimenta la vida moderna en nuestro Apartamento Moderno ubicado en el corazón de la ciudad. Ideal para parejas o viajeros individuales, este apartamento cuenta con todas las comodidades</p>
+                        <a href="#" class="btn btn-secondary fs-3">Ver más</a>
+                    </div>
+                </div>
+                <div class="card h-100" style="width: 18rem;">
+                    <img src="./assets/img/articulo_03.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-3">Refugio rustico</h5>
+                        <p class="card-text fs-4">Sumérgete en la atmósfera encantadora de nuestro Refugio Rústico. Esta casa de campo cuenta con tres habitaciones y una acogedora chimenea...</p>
+                        <a href="#" class="btn btn-secondary fs-3">Ver más</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        <section class="main__sections" v-if="catalogo">
+            <!-- SECCION DE CATALOGO -->
+            <section class="catalogo">
+                <!-- Carga de articulos -->
+                <article class="d-flex flex-column flex-md-row catalogo__articulos gap-2" v-for="item,key in articulos">
+                    <div class="catalogo__articulos__imagen">
+                        <div :id="'carouselExampleFade_'+key" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- Slider publicitario -->
+                              <div class="carousel-item active">
+                                <img :src="item.imagen" class="d-block w-100">
+                              </div>
+                              <div class="carousel-item" v-for="img in item.imagenes">
+                                <img :src="img" class="d-block w-100">
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" :data-bs-target="'#carouselExampleFade_'+key" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" :data-bs-target="'#carouselExampleFade_'+key" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                    </div>
+                    <!-- Información adicional de de las casas -->
+                    <div class="catalogo__articulos__content">
+                        <div class="Stars" :style="'--rating: '+item.puntos" aria-label="Rating of this product is 2.3 out of 5."></div>
+                        <h2 class="display-3">{{item.nombre_casa}}</h2>
+                        <p class="fs-2 text-secondary"><i class="ri-user-fill"></i>{{item.personas}} <i class="ri-hotel-bed-fill"></i> {{item.n_habitaciones}}</p>
+                        <p class="fs-4">{{item.descripcion}}</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="catalogo__articulos__content__icon" v-for="icon in item.caracteristicas">
+                                <img :src="'./assets/img/icon/'+icon+'.svg'" alt="">
+                            </div>
+                            <a class="catalogo__articulos__content__detalle" @click="verDetalle()">Ver más</a>
+                        </div>
+                        
+                    </div>
+                </article>
+            </section>
+        </section>
+        <section class="main__sections" v-if="detalle">
+            <!-- Seccion para ver el detalle -->
+            <section class="detalle" v-if="articulos[0]">
+                <section class="detalle__imagen">
+                    <img :src="articulos[0].imagen" alt="">
+                </section>
+                <section class="detalle__galeria">
+                    <div class="detalle__galeria__imagen" @click="event('original')">
+                        <img :src="copia" alt="">
+                    </div>
+                    <div class="detalle__galeria__imagen" v-for="img,key in articulos[0].imagenes" @click="event(key)">
+                        <img :src="img" :alt="articulos[0].nombre">
+                    </div>
+                </section>
+                <div id="detalle__bajo">
+                    <section class="detalle__content">
+                        <div class="Stars" :style="'--rating: '+articulos[0].puntos" aria-label="Rating of this product is 2.3 out of 5."></div>
+                        
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h2 class="display-3">{{articulos[0].nombre_casa}}</h2>
+                            <div class=" d-flex w-25">
+                                <div class="detalle__content__icon" v-for="icon in articulos[0].caracteristicas">
+                                    <img :src="'./assets/img/icon/'+icon+'.svg'" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="fs-2 text-secondary"><i class="ri-user-fill"></i>{{articulos[0].personas}} <i class="ri-hotel-bed-fill"></i> {{articulos[0].n_habitaciones}}</p>
+                        <p class="fs-4">{{articulos[0].descripcion}}</p>
+                        <nav id="navbar-example2" class="navbar bg-light px-3 mb-3 pruebas">
+                            <ul class="nav nav-pills fs-3">
+                              <li class="nav-item">
+                                <a class="nav-link" href="#descripcion">Descripción</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#instalaciones">Instalaciones</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#comodidades">Comodidades</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#tarifas">Tarifas</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#resena">Reseñas</a>
+                              </li>
+                            </ul>
+                          </nav>
+                          <section data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy bg-light p-3 rounded-2" tabindex="0">
+                            <section>
+                                <h2 id="descripcion" class="text-secondary">Descripción</h2>
+                                <p class="fs-3">{{articulos[0].descripcion_larga}}</p>
+                            </section>
+                            <section>
+                                <h2 id="instalaciones" class="text-secondary">Instalaciones</h2>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item bg-transparent fs-3" v-for="instalaciones in articulos[0].instalaciones">{{instalaciones}}</li>
+                                </ul>
+                            </section>
+                            <section >
+                                <h2 id="comodidades" class="text-secondary">Comodidades</h2>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item bg-transparent fs-3" v-for="comodidad in articulos[0].comodidades">{{comodidad}}</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h2 id="tarifas" class="text-secondary">Tarifas</h2>
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th class="fs-3" scope="col">Tiempo</th>
+                                        <th class="fs-3" scope="col">Precio Total</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                      <tr v-for="tarifas in articulos[0].tarifas">
+                                        <th class="fs-3" scope="row">{{tarifas[0]}}</th>
+                                        <td class="fs-3">{{tarifas[1]}}</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </section>
+                            <section>
+                                <h2 id="resena" class="text-secondary">Reseñas</h2>
+                                <article class="resena__article bg-quaternary my-3 p-3 text-tertiary" v-for="resena in articulos[0].resena">
+                                    <div class="Stars" :style="'--rating: '+resena.rate" aria-label="Rating of this product is 2.3 out of 5."></div>
+                                    <h3 class="display-6">{{resena.name}}</h3>
+                                    <q class="fs-2">{{resena.comentario}}</q>
+                                </article>
+                                <textarea name="" class="resena__text" placeholder="Puede dejar su reseña aquí"></textarea>
+                                <button class="btn btn-secondary my-2 fs-3">Enviar</button>
+                            </section>
+                          </section>
+                          
+                    </section>
+                    <section class="detalle__factura d-flex flex-column align-items-center">
+                        <h2 class="display-1 text-center text-secondary-600">¿Interesado en esta vivienda?</h2>
+                        <p class="fs-1 text-center">Habla con un profesional en +34999999999</p>
+                        <p class="fs-1">o</p>
+                        <button class="btn btn-secondary fs-1">Completa el formulario</button>
+                    </section>
+                </div>
+            </section>
+        </section>
+    </main>
+    <!-- Footer-->
+    <footer class="footer">
+        <section class="footer__section d-flex flex-column align-items-center">
+            <h4 class="fs-1 text-secondary-600">HouseB&B</h4>
+            <ul class="list-clean fs-4">
+                <li><a class="link" href="#">Quienes somos</a></li>
+                <li><a class="link" href="#">Contáctanos</a></li>
+            </ul>
+        </section>
+        <section class="footer__section d-flex flex-column align-items-center">
+            <h4 class="fs-1 text-secondary-600">Descarga App</h4>
+            <div>
+                <a class="btn icon"><i class="ph ph-android-logo icon__footer icon__footer__interactive"></i></a>
+                <a class="btn icon"><i class="ph ph-apple-logo icon__footer icon__footer__interactive"></i></a>
+            </div>
+        </section>
+        <section class="footer__section d-flex flex-column align-items-center">
+            <h4 class="fs-1 text-secondary-600">Síguenos</h4>
+            <div>
+                <a class="btn"><i class="ph ph-facebook-logo icon__footer icon__footer__interactive"></i></a>
+                <a class="btn"><i class="ph ph-pinterest-logo icon__footer icon__footer__interactive"></i></a>
+                <a class="btn"><i class="ph ph-twitter-logo icon__footer icon__footer__interactive"></i></a>
+                <a class="btn"><i class="ph ph-instagram-logo icon__footer icon__footer__interactive"></i></a>
+            </div>
+        </section>
+    </footer>
+    <script src="assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>

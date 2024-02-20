@@ -1,0 +1,7 @@
+/*Cambiando la variable para el radio del boton*/
+$btn-border-radius: .5rem;
+/*Sobre escribo la clase del boton porque el gulp no lo reconoce correctamente*/
+.btn-secondary{
+    color: white !important;
+    background-color: color(secondary) !important;
+}
